@@ -1,0 +1,308 @@
+let minNum = 0;
+let maxNum = 99;
+
+function mathemat(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let randomNum = mathemat(minNum, maxNum);
+console.log(randomNum);
+let score = 0;
+let flag = true;
+let nnn = 0;
+function ygodai(g) {
+    let n = parseInt(prompt("Введи число от 0 до 99"));
+    if (n < g && n > -1 || n === null) {
+        alert("давай больше");
+        score++;
+        ygodai(g);
+    }
+    else if (n > g && n < 100) {
+        alert("давай меньше");
+        score++;
+        ygodai(g);
+    }
+    else if (n <= -1) {
+        alert("Число слишком маленькое");
+        score++;
+        ygodai(g);
+    }
+    else if (n >= 100) {
+        alert("Число слишком большое");
+        score++;
+        ygodai(g);
+    }
+    else {
+        alert("вы угодали число за " + score + " попыток");
+        score = 0;
+        flag = confirm("Игра закончена, нажмите ОК если хотите ещё раз поиграть");
+        if (flag) {
+            randomNum = mathemat(minNum, maxNum);
+            nnn++;
+            console.log(nnn + " Игра");
+            console.log(randomNum);
+            ygodai(randomNum);
+        }
+    }
+}
+
+ygodai(randomNum);
+
+
+        let p = document.querySelector('#lo');
+        p.addEventListener('mouseover', ()=> {p.style.color = 'red'; p.style.fontSize = '2em'});
+        p.addEventListener('mouseout', ()=> {p.style.color = 'black'; p.style.fontSize = '20px'});
+
+
+        
+        let but = document.querySelector('#button');
+        let h1 = document.querySelector('#h1');
+        but.addEventListener('click', ()=> h1.innerHTML = 'новый контент');
+
+        контрольная 09.10.2024
+
+        'use strict'
+
+/*
+Задание 1
+Дан массив чисел [6,2,4,8,3,9] С помощью метода map необходимо умножить каждый элемент в массиве на случайное число.
+
+Задание 2
+Дан массив объектов
+arr = [
+  { name: 'Ivanov', age: 25, salary: 15000 },
+  { name: 'Petrov', age: 23, salary: 25000 },
+  { name: 'Ignatov', age: 27, salary: 35000 },
+];
+С помощью метода reduce необходимо вычислить общий возраст всех пользователей в массиве объектов пользователей.
+
+Задание 3
+Дан массив чисел [-6,-2,4,8,-3,9] Напишите функцию, которая принимает массив чисел и с помощью метода foreach проверяет, содержит ли он хотя бы одно положительное число.
+*/
+
+
+
+document.writeln('1 Задание:');
+let min = 1;
+let max = 99;
+let ranNum = Math.floor(Math.random() * (max - min + 1));
+let arr = [6, 2, 4, 8, 3, 9];
+
+arr = arr.map((num) => num * ranNum);
+
+document.writeln(arr);
+
+document.writeln('<br>2 Задание:');
+
+let arr2 = [
+    { name: 'Ivanov', age: 25, salary: 15000 },
+    { name: 'Petrov', age: 23, salary: 25000 },
+    { name: 'Ignatov', age: 27, salary: 35000 },
+];
+
+let ages = arr2.reduce((a, elem) => a += elem.age, 0);
+
+document.writeln(ages);
+
+document.writeln('<br>3 Задание:');
+let arr3 = [-6, -2, 4, 8, -3, 9];
+
+function Massiv(arr) {
+    let flag = false;
+    arr.forEach(elem => {
+        if (elem > 0) {
+            flag = true;
+            return flag;
+        }
+    });
+    return flag;
+}
+console.log(Massiv(arr3));
+
+if (Massiv(arr3) === true) {
+    document.writeln('True');
+}
+else {
+    document.writeln('False');
+}
+
+
+
+
+
+не контрольная крч
+
+
+        let but = document.querySelector('#button');
+        let h1 = document.querySelector('#h1');
+        let jjj = h1.innerHTML;
+        let ghg = '*НУ НЕРЕАЛЬНО КРУТОЙ АБЗАЦ* - новый текст'
+        but.addEventListener('click', ()=> {
+            if(h1.innerHTML == jjj){h1.innerHTML = ghg; h1.style.color = 'red'} 
+            else{h1.innerHTML = jjj; h1.style.color = 'black'}
+        });
+
+        let none = document.querySelector('input[type="text"]');
+        let ch = document.querySelector('input[type="checkbox"]');
+        none.addEventListener('blur', () =>{
+            if (none.value === 'open') {
+                ch.removeAttribute('disabled'); 
+            }
+            else{
+                ch.setAttribute('disabled','disabled');
+            }
+        });
+
+
+                let inp = document.querySelector('#fam');
+        let inpu = document.querySelector('#name');
+        let input = document.querySelector('#papa');
+        inp.addEventListener('blur',()=>{
+                inpu.removeAttribute('disabled');
+        });
+        inpu.addEventListener('blur',()=>{
+            if(inpu.value === ''){
+                inpu.setAttribute('type','hidden');
+            }
+            else{
+                input.removeAttribute('disabled');
+            }
+        });
+        input.addEventListener('blur',()=>{
+            if(input.value === ''){
+                input.setAttribute('type','hidden');
+            }
+        });
+
+        
+
+
+                let p = document.querySelectorAll('p');
+        p.forEach(p => {
+            p.addEventListener('click',() => {
+                p.classList.toggle('fontsBig');
+            });
+        });
+
+
+
+
+
+            let elem = document.getElementById('elem');
+    let block = document.getElementById('block');
+    let point = document.getElementById('point');
+    let spisok = document.querySelector('ul');
+    let text = spisok.children;
+
+
+    document.addEventListener('mousemove', function(event) {
+	elem.innerHTML = event.clientX + ' : ' + event.clientY;
+});
+    point.addEventListener('click', function(event) {
+        if (event.clientX == 100 && event.clientY == 100) {
+            if(block.style.borderRadius == '0px'){
+                block.style.borderRadius = '50px';
+            }
+            else{
+                block.style.borderRadius = '0px';
+            }
+        }
+});
+block.addEventListener('click', func);
+block.addEventListener('dblclick', func);
+
+function func(event) {
+	if(event.type == "click"){
+        console.log(event.type);
+        block.style.backgroundColor = 'red';
+    }
+    if(event.type == "dblclick"){
+        console.log(event.type);
+        block.style.backgroundColor = 'green';
+    }
+}
+spisok.addEventListener('click', (event) => {
+    if(event.target.tagName == 'LI'){
+        event.target.innerHTML += '!';
+    }
+    else if(event.target.tagName == 'UL'){
+        console.log("Ne to krch");
+    }
+});
+
+
+
+
+'use strict'
+
+let min = document.getElementById('one');
+let max = document.getElementById('two');
+let button = document.getElementById('btn');
+let form = document.querySelector('form');
+let ranNum = 0;
+
+function randomNum(minimal,maxsimal) {
+    //return Math.floor(Math.random() * (maxsimal - minimal) + minimal); 
+    //return randomInteger(maxsimal , minimal);
+    return Math.floor((Math.random() * (maxsimal - minimal + 1)) + minimal);
+}
+
+button.addEventListener('click', ()=> {
+    if(min.value && max.value){
+        form.style.display = 'none';
+        ranNum = randomNum(min.value, max.value);
+        
+        console.log(ranNum);
+        let table = document.createElement('table');
+        for (let i = 0; i < ranNum; i++) {
+            let row = table.insertRow();
+            for(let j = 0; j < ranNum; j++){
+                let cell = row.insertCell();
+               // cell.textContent = i*ranNum+j;
+                cell.addEventListener('click', ()=> {
+                    let o = cell.parentNode.rowIndex;
+  let oo = cell.cellIndex;
+  cell.textContent = o*ranNum+oo;
+                })
+                //cell.textContent = cell.tabIndex;
+                console.log("insert cell");
+            }
+        }
+        document.body.appendChild(table);
+    }
+});
+
+
+    /*while(true){
+        aaa = randomizer(1, nnn);
+        console.log(aaa);
+        if(arrayForRanIns.includes(aaa) == true){       
+            arrayForRanIns.push(aaa); 
+            return aaa;
+        }
+    }*/
+   /*console.log(aaa);
+   arrayForRanIns.forEach(element => {
+        if(element == aaa){
+            boolForIns = true;
+            console.log(boolForIns);
+        }
+   });
+   if (boolForIns == true) {
+        arrayForRanIns.push(aaa); 
+        return aaa;
+   }
+   else{
+    rondomInsert();
+   }
+*/  
+    /*for (let element of arrayForRanIns) {
+        if (element == aaa) {
+            console.log('no');
+        }
+        else{
+            arrayForRanIns.push(aaa); 
+            console.log(aaa);
+            return aaa;
+        }
+    }*/
